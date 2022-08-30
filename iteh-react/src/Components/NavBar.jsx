@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function NavBar({ cartNum }) {
   return (
     <div className="navBar">
-      <Link to="/">My Store</Link>
+      <Link to="/">Palermo</Link>
       <Link to="/cart" className="cart-items">
         <ImCart />
         <div className="cart-num">{cartNum}</div>
@@ -14,7 +14,7 @@ function NavBar({ cartNum }) {
         className="links"
         style={{
           top: 0,
-          marginLeft: 700,
+          marginLeft: "auto",
           flexDirection: "column",
         }}
       >

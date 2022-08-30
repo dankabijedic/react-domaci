@@ -5,7 +5,7 @@ import Header from "./Header";
 
 const About = () => {
   const title = "O nama";
-  const subtitle = "Istinita price";
+  const subtitle = "Istinita prica";
   return (
     <div>
       <Header title={title} subtitle={subtitle} showbutton={false} />
@@ -110,14 +110,14 @@ const About = () => {
                 <li className="timeline-inverted">
                   <div className="timeline-image">
                     <h4>
-                      Budi deo
+                      Podelite
                       <br />
-                      naše
+                      vaše
                       <br />
-                      priče!
+                      utiske!
                     </h4>
                     <Link className="btn btn-primary" to="/contact">
-                      Prijavi se
+                      Pišite nam!
                     </Link>
                   </div>
                 </li>

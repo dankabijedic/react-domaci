@@ -40,6 +40,7 @@
 }
 
 .card {
+  flex: inherit;
   flex-basis: 25%;
 
   padding-left: 8px;
@@ -80,11 +81,6 @@ a {
 .cart-items {
   display: flex;
   flex-direction: row;
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(211, 211, 211);
-  border-radius: 10px;
-  max-width: 500px;
 }
 
 .card-cart {
@@ -94,7 +90,7 @@ a {
   border-width: 2px;
   border-color: rgb(211, 211, 211);
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .card-img-left {
@@ -368,7 +364,7 @@ p {
 }
 
 a {
-  color: #fed136;
+  color: #cc5500;
 }
 
 a:hover {
@@ -438,9 +434,11 @@ section h3.section-subheading {
 }
 
 section#contact {
-  background-color: #212529;
+  background-color: #909090;
   background-repeat: no-repeat;
   background-position: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 section#contact .section-heading {

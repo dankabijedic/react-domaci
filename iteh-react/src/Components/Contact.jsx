@@ -57,12 +57,12 @@ class Contact extends Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="section-heading text-uppercase">
-                Kontaktiraj nas
+              <h2
+                className="section-heading text-uppercase"
+                style={{ textAlign: "center" }}
+              >
+                Pisi nam
               </h2>
-              <h3 className="section-subheading text-muted">
-                L'amie Salon de Beaute tim
-              </h3>
             </div>
           </div>
           <div className="row">
@@ -93,7 +93,10 @@ class Contact extends Component {
                     );
                   })}
                   <div className="clearfix"></div>
-                  <div className="col-lg-12 text-center">
+                  <div
+                    className="col-lg-12 text-center"
+                    style={{ textAlign: "center" }}
+                  >
                     <div id="success"></div>
                     <button
                       className="btn btn-primary btn-xl text-uppercase"
