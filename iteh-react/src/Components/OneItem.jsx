@@ -3,7 +3,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 
 const OneItem = ({ item, onOrder }) => {
   return (
-    <div className="card" style={{ margin: 10, borderStyle: "dashed" }}>
+    <div className="card" style={{ margin: 10, borderStyle: "solid" }}>
       <img className="card-img-top" src={item.image} alt="Neka slika" />
 
       <div className="card-body">
@@ -13,7 +13,7 @@ const OneItem = ({ item, onOrder }) => {
         <h5 className="price-text">Cena:</h5>
         <p className="price">{item.price}</p>
         <a className="btn" onClick={() => onOrder(item.id)}>
-          Naruci
+          Dodaj u korpu
           <button className="btn" style={{ size: 10 }}>
             <IoMdAddCircleOutline />
           </button>

@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     calcPrice();
   }, [cartItems]);
-  const [items, setItems] = useState([
+  const [items] = useState([
     {
       id: 1,
       title: "Kapricoza",
@@ -49,7 +49,7 @@ function App() {
     {
       id: 4,
       title: "Specijal",
-      ingredients: "Pelat, sir, šunka, pečurke, kulen, njeguški pršut, masline",
+      ingredients: "Pelat, sir, šunka, pečurke, kulen, masline",
       price: 1250,
       amount: 0,
       image: specijal,
@@ -78,12 +78,20 @@ function App() {
         item.amount = item.amount + 1;
         const a = cartNum + 1;
         setCartNum(a);
+
         if (item.amount === 1) {
           updateCart(item);
         } else {
           refreshCart();
         }
-        console.log("product id=", item.id, "amount=", item.amount, cartNum);
+        console.log(
+          "product id=",
+          item.id,
+          "amount=",
+          item.amount,
+          cartNum,
+          cartItems
+        );
       }
     });
   };
@@ -101,9 +109,40 @@ function App() {
   const calcPrice = () => {
     let totalPrice = 0;
     for (let i = 0; i < cartItems.length; i++) {
-      totalPrice += cartItems[i].price;
+      totalPrice += cartItems[i].price * cartItems[i].amount;
     }
     setTotalPrice(totalPrice);
+  };
+
+  const increase = (id) => {
+    items.map((item) => {
+      if (item.id === id) {
+        item.amount = item.amount + 1;
+        const a = cartNum + 1;
+        setCartNum(a);
+
+        if (item.amount === 1) {
+          updateCart(item);
+        } else {
+          refreshCart();
+        }
+      }
+    });
+  };
+
+  const decrease = (id) => {
+    items.map((item) => {
+      if (item.id === id) {
+        if (item.amount > 0) {
+          item.amount = item.amount - 1;
+          const a = cartNum - 1;
+          setCartNum(a);
+        }
+        if (item.amount === 0) {
+          refreshCart();
+        }
+      }
+    });
   };
 
   return (
@@ -113,11 +152,7 @@ function App() {
         <Route
           path="/"
           element={[
-            <Header
-              title="Dobrodosli u"
-              subtitle="Piceriju Palermo"
-              showbutton={true}
-            />,
+            <Header title="Dobrodosli u" subtitle="Piceriju Palermo" />,
             <Items items={items} onOrder={order} />,
           ]}
         />
@@ -128,6 +163,8 @@ function App() {
               cartItems={cartItems}
               cartNum={cartNum}
               totalPrice={totalPrice}
+              onIncrease={increase}
+              onDecrease={decrease}
             />
           }
         />
